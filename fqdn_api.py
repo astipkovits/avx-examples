@@ -45,7 +45,8 @@ def create_fqdn_tag(controller_url, cid, tag_name, domain_names, gw_name, source
         payload[domainFqdn] = domain["fqdn"]
         payload[domainProto] = domain["proto"]
         payload[domainPort] = domain["port"]
-
+        i += 1
+ 
     response = requests.request("POST", url, headers={}, data=payload, verify=False)
     responseDict = json.loads(response.text)
     if responseDict["return"] == False:
